@@ -26,9 +26,33 @@
 			customType: "regex",
 			fileMatch: ["^*.gemspec"],
 			matchStrings: [
-				".*add.*dependency '(?<depName>.*?)', '(?<currentValue>.*?)'",
+				".*add.*dependency\\s+'(?<depName>.*?)'\\s*,\\s*'(?<currentValue>.*?)'",
 			],
 			datasourceTemplate: "rubygems",
+		},
+		{
+			customType: "regex",
+			fileMatch: ["^*.gemspec"],
+			matchStrings: [
+				'.*add.*dependency\\s+"(?<depName>.*?)"\\s*,\\s*"(?<currentValue>.*?)"',
+			],
+			datasourceTemplate: "rubygems",
+		},
+		{
+			customType: "regex",
+			fileMatch: ["**/Gemfile"],
+			matchStrings: [
+				"github:\\s+'(?<depName>.*?)'\\s*,\\s*ref:\\s+'(?<currentValue>.*?)'",
+			],
+			datasourceTemplate: "github-tags",
+		},
+		{
+			customType: "regex",
+			fileMatch: ["**/Gemfile"],
+			matchStrings: [
+				'github:\\s+"(?<depName>.*?)"\\s*,\\s*ref:\\s+"(?<currentValue>.*?)"',
+			],
+			datasourceTemplate: "github-tags",
 		},
 		{
 			customType: "regex",
