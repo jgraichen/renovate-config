@@ -24,7 +24,7 @@
 	customManagers: [
 		{
 			customType: "regex",
-			fileMatch: ["^*.gemspec"],
+			fileMatch: ["^*.gemspec$"],
 			matchStrings: [
 				".*add.*dependency\\s+'(?<depName>.*?)'\\s*,\\s*'(?<currentValue>.*?)'",
 			],
@@ -32,7 +32,7 @@
 		},
 		{
 			customType: "regex",
-			fileMatch: ["^*.gemspec"],
+			fileMatch: ["^*.gemspec$"],
 			matchStrings: [
 				'.*add.*dependency\\s+"(?<depName>.*?)"\\s*,\\s*"(?<currentValue>.*?)"',
 			],
@@ -40,7 +40,7 @@
 		},
 		{
 			customType: "regex",
-			fileMatch: ["**/Gemfile"],
+			fileMatch: ["Gemfile$"],
 			matchStrings: [
 				"github:\\s+'(?<depName>.*?)'\\s*,\\s*ref:\\s+'(?<currentValue>.*?)'",
 			],
@@ -48,7 +48,7 @@
 		},
 		{
 			customType: "regex",
-			fileMatch: ["**/Gemfile"],
+			fileMatch: ["Gemfile$"],
 			matchStrings: [
 				'github:\\s+"(?<depName>.*?)"\\s*,\\s*ref:\\s+"(?<currentValue>.*?)"',
 			],
