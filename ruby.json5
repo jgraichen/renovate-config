@@ -10,6 +10,7 @@
 			matchManagers: ["custom.regex"],
 			matchFileNames: [".github/workflows/*"],
 			rangeStrategy: "replace",
+			versioning: "docker"
 		},
 		// Group ruby binaries and known container images
 		{
@@ -22,38 +23,15 @@
 		},
 	],
 	customManagers: [
-		{
-			customType: "regex",
-			fileMatch: ["^*.gemspec$"],
-			matchStrings: [
-				".*add.*dependency\\s+'(?<depName>.*?)'\\s*,\\s*'(?<currentValue>.*?)'",
-			],
-			datasourceTemplate: "rubygems",
-		},
-		{
-			customType: "regex",
-			fileMatch: ["^*.gemspec$"],
-			matchStrings: [
-				'.*add.*dependency\\s+"(?<depName>.*?)"\\s*,\\s*"(?<currentValue>.*?)"',
-			],
-			datasourceTemplate: "rubygems",
-		},
-		{
-			customType: "regex",
-			fileMatch: ["Gemfile$"],
-			matchStrings: [
-				"github:\\s+'(?<depName>.*?)'\\s*,\\s*ref:\\s+'(?<currentValue>.*?)'",
-			],
-			datasourceTemplate: "github-tags",
-		},
-		{
-			customType: "regex",
-			fileMatch: ["Gemfile$"],
-			matchStrings: [
-				'github:\\s+"(?<depName>.*?)"\\s*,\\s*ref:\\s+"(?<currentValue>.*?)"',
-			],
-			datasourceTemplate: "github-tags",
-		},
+    {
+      customType: "regex",
+      fileMatch: ["^.*\\.gemspec"],
+      matchStrings: [
+        ".*\\.add_(:?(?<depType>.*?)_)?dependency\\s*(['\"])(?<depName>[^'\"]+)(['\"])(\\s*,\\s*(?<currentValue>(['\"])[^'\"]+['\"](\\s*,\\s*['\"][^'\"]+['\"])?))?",
+      ],
+      datasourceTemplate: "rubygems",
+      versioningTemplate: "ruby",
+    },
 		{
 			customType: "regex",
 			fileMatch: ["^\\.github/workflows/[^/]+\\.ya?ml$"],
