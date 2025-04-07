@@ -24,7 +24,7 @@
 		// Group rubocop gems. They often depend on a specific rubocop
 		// version and it will be easier updating them together.
 		{
-			matchDatasources: ["rubygems"],
+			matchFileNames: ["**/Gemfile"],
 			matchPackageNames: ["rubocop", "/^rubocop-/"],
 			groupName: "rubocop",
 		},
