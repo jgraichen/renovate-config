@@ -10,7 +10,7 @@
 			matchManagers: ["custom.regex"],
 			matchFileNames: [".github/workflows/*"],
 			rangeStrategy: "replace",
-			versioning: "docker"
+			versioning: "docker",
 		},
 		// Group ruby binaries and known container images
 		{
@@ -21,17 +21,24 @@
 				"ruby",
 			],
 		},
+		// Group rubocop gems. They often depend on a specific rubocop
+		// version and it will be easier updating them together.
+		{
+			matchDatasources: ["rubygems"],
+			matchPackageNames: ["rubocop", "/^rubocop-/"],
+			groupName: "rubocop",
+		},
 	],
 	customManagers: [
-    {
-      customType: "regex",
-      fileMatch: ["^.*\\.gemspec"],
-      matchStrings: [
-        ".*\\.add_(:?(?<depType>.*?)_)?dependency\\s*(['\"])(?<depName>[^'\"]+)(['\"])(\\s*,\\s*(?<currentValue>(['\"])[^'\"]+['\"](\\s*,\\s*['\"][^'\"]+['\"])?))?",
-      ],
-      datasourceTemplate: "rubygems",
-      versioningTemplate: "ruby",
-    },
+		{
+			customType: "regex",
+			fileMatch: ["^.*\\.gemspec"],
+			matchStrings: [
+				".*\\.add_(:?(?<depType>.*?)_)?dependency\\s*(['\"])(?<depName>[^'\"]+)(['\"])(\\s*,\\s*(?<currentValue>(['\"])[^'\"]+['\"](\\s*,\\s*['\"][^'\"]+['\"])?))?",
+			],
+			datasourceTemplate: "rubygems",
+			versioningTemplate: "ruby",
+		},
 		{
 			customType: "regex",
 			fileMatch: ["^\\.github/workflows/[^/]+\\.ya?ml$"],
