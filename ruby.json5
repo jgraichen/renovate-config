@@ -32,7 +32,7 @@
 	customManagers: [
 		{
 			customType: "regex",
-			fileMatch: ["^.*\\.gemspec"],
+			managerFilePatterns: ["/^.*\\.gemspec/"],
 			matchStrings: [
 				".*\\.add_(:?(?<depType>.*?)_)?dependency\\s*(['\"])(?<depName>[^'\"]+)(['\"])(\\s*,\\s*(?<currentValue>(['\"])[^'\"]+['\"](\\s*,\\s*['\"][^'\"]+['\"])?))?",
 			],
@@ -41,7 +41,7 @@
 		},
 		{
 			customType: "regex",
-			fileMatch: ["^\\.github/workflows/[^/]+\\.ya?ml$"],
+			managerFilePatterns: ["/^\\.github/workflows/[^/]+\\.ya?ml$/"],
 			matchStrings: ['ruby-version:\\s+"(?<currentValue>.*?)"'],
 			depNameTemplate: "ruby",
 			datasourceTemplate: "ruby-version",
