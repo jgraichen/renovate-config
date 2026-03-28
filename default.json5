@@ -1,10 +1,8 @@
 {
 	$schema: "https://docs.renovatebot.com/renovate-schema.json",
 	extends: [
-		"config:recommended",
+		"config:best-practices",
 		"schedule:weekly",
-		":maintainLockFilesWeekly",
-		"helpers:pinGitHubActionDigests",
 		"local>jgraichen/renovate-config:go.json5",
 		"local>jgraichen/renovate-config:node.json5",
 		"local>jgraichen/renovate-config:ruby.json5",
