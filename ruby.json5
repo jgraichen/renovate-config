@@ -20,6 +20,10 @@
 				"registry.docker.com/library/ruby",
 				"ruby",
 			],
+			// Wait a bit before updating Ruby itself, to give time for new
+			// versions to be released to all providers, such as GitHub
+			// actions and container images.
+			minimumReleaseAge: "2 days",
 		},
 		// Group rubocop gems. They often depend on a specific rubocop
 		// version and it will be easier updating them together.
