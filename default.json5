@@ -3,6 +3,7 @@
 	extends: [
 		"config:best-practices",
 		"schedule:weekly",
+		"local>jgraichen/renovate-config:actions.json5",
 		"local>jgraichen/renovate-config:go.json5",
 		"local>jgraichen/renovate-config:node.json5",
 		"local>jgraichen/renovate-config:ruby.json5",

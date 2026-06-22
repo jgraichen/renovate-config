@@ -1,0 +1,10 @@
+{
+	$schema: "https://docs.renovatebot.com/renovate-schema.json",
+	packageRules: [
+		{
+			matchPackageNames: ["actions/checkout"],
+			matchUpdateTypes: ["major", "minor", "patch", "pin"],
+			automerge: true,
+		},
+	],
+}
