@@ -32,6 +32,13 @@
 			matchPackageNames: ["rubocop", "/^rubocop-/"],
 			groupName: "rubocop",
 		},
+		// Automerge updates to our rubocop config, as they are fine if
+		// everything passes.
+		{
+			matchPackageNames: ["jgraichen/rubocop-config"],
+			matchUpdateTypes: ["major", "minor", "patch"],
+			automerge: true,
+		},
 	],
 	customManagers: [
 		{
