@@ -1,9 +1,12 @@
 {
 	$schema: "https://docs.renovatebot.com/renovate-schema.json",
 	packageRules: [
+		// Group and automerge all action updates, as they are usually safe
+		// if CI passes.
 		{
-			matchPackageNames: ["actions/checkout"],
-			matchUpdateTypes: ["major", "minor", "patch", "pin"],
+			matchManagers: ["github-actions"],
+			matchUpdateTypes: ["digest", "major", "minor", "patch", "pin"],
+			groupName: "GitHub Actions",
 			automerge: true,
 		},
 	],
