@@ -2,7 +2,7 @@
 	"name": "renovate-config",
 	"private": true,
 	"devDependencies": {
-		"renovate": "44.115.2"
+		"renovate": "44.132.2"
 	},
 	"scripts": {
 		"validate": "renovate-config-validator --strict *.json5"
