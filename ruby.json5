@@ -50,12 +50,5 @@
 			datasourceTemplate: "rubygems",
 			versioningTemplate: "ruby",
 		},
-		{
-			customType: "regex",
-			managerFilePatterns: ["/^\\.github/workflows/[^/]+\\.ya?ml$/"],
-			matchStrings: ['ruby-version:\\s+"(?<currentValue>.*?)"'],
-			depNameTemplate: "ruby",
-			datasourceTemplate: "ruby-version",
-		},
 	],
 }
