@@ -13,7 +13,9 @@
 
 	// Useful defaults
 	semanticCommits: "enabled",
-	dependencyDashboard: true,
+	dependencyDashboard: {
+		enabled: true,
+	},
 
 	assignees: ["jgraichen"],
 
